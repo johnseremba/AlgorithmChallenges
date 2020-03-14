@@ -17,4 +17,4 @@ Some Data Structures and Algorithms Challenges
 1. [Insertion Sort](src/com/serions/searching/InsertionSort.java)
 
 ### Data Structures
-1. [Min heap](src/com/serions/searching/MinHeap.java)
+1. [Min heap](src/com/serions/datastructures/MinHeap.java)

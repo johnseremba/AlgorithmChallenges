@@ -1,6 +1,4 @@
-package com.serions.searching;
-
-import java.util.Stack;
+package com.serions.datastructures;
 
 public class MinHeap {
     private int[] heap;
