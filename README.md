@@ -15,6 +15,8 @@ Some Data Structures and Algorithms Challenges
 1. [Bubble Sort](src/com/serions/searching/BubbleSort.java)
 1. [Heap Sort](src/com/serions/searching/HeapSort.java)
 1. [Insertion Sort](src/com/serions/searching/InsertionSort.java)
+1. [Breadth First Search](src/com/serions/graphs/BFS.java)
+1. [Depth First Search](src/com/serions/graphs/DFS.java)
 
 ### Data Structures
 1. [Min heap](src/com/serions/datastructures/MinHeap.java)

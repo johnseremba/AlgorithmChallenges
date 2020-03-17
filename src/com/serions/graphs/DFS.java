@@ -1,9 +1,6 @@
 package com.serions.graphs;
 
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class DFS {
     static class Graph {
@@ -65,6 +62,24 @@ public class DFS {
             System.out.print(vertex + " ");
         }
 
+        // Topological Sort
+        public List<Integer> topologicalSort(int start) {
+            LinkedList<Integer> result = new LinkedList<>();
+            boolean[] visited = new boolean[numOfVertices];
+            topologicalSortRecursive(start, visited, result);
+            return result;
+        }
+
+        private void topologicalSortRecursive(int current, boolean[] visited, LinkedList<Integer> result) {
+            visited[current] = true;
+            for (int dest : adjacencyList[current]) {
+                if (!visited[dest]) {
+                    topologicalSortRecursive(dest, visited, result);
+                }
+            }
+            result.addFirst(current);
+        }
+
     }
 
     public static void main(String[] args) {
@@ -78,6 +93,11 @@ public class DFS {
 
         graph.DFSWithRecursion(2);
         System.out.println();
+
         graph.dfsWithoutRecursion(2);
+        System.out.println();
+
+        List<Integer> result = graph.topologicalSort(2);
+        System.out.println(result.toString());
     }
 }
