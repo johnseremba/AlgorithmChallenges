@@ -9,6 +9,7 @@ Some Data Structures and Algorithms Challenges
 1. [FizzBuzz](src/com/serions/FizzBuzz.java)
 1. [Palindrome](src/com/serions/Palindrome.java)
 1. [Count Number of Vowels in a Word](src/com/serions/Vowels.java)
+1. [Amazon Cluster](src/com/serions/challenges/AmazonCluster.java)
 
 
 ### Searching Algorithms

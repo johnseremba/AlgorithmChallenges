@@ -1,8 +1,27 @@
-package com.serions;
+package com.serions.challenges;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+/**
+ * We are tracking down our rogue agent and she travels from place to place to avoid being tracked. Each of her travels are based on a list of itineraries in an unusual or incorrect order. The task is to determine the complete route she will take.
+ * You are given an array of routes containing her travel itineraries. Convert this into a complete, in-order list of the places she will travel.
+ * Specification
+ * findRoutes(routes)
+ * Parameters
+ * routes: Array<Array<String>> - Array of itineraries
+ * Return Value
+ * String - An ordered list or destinations
+ * Constraints
+ * All inputs have at least one valid, complete route
+ * Examples
+ * input;
+ * [["USA","BRA"],["JPN","PHL"],["BRA","UAE"],["UAE","JPN"]]
+ *
+ * output;
+ * "USA, BRA, UAE, JPN, PHL"
+ * */
 
 public class Flight {
     static class Node {
@@ -95,11 +114,10 @@ public class Flight {
             StringBuilder sb = new StringBuilder();
             Node currentNode = head;
 
-            while (currentNode.next != null) {
+            while (currentNode != null) {
                 sb.append(currentNode.data).append(", ");
                 currentNode = currentNode.next;
             }
-            sb.append(currentNode.data);
 
             return sb.toString();
         }
