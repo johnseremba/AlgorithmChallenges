@@ -3,6 +3,7 @@ package com.serions.datastructures.sets;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class SetProblems {
     public static void main(String[] args) {
@@ -28,5 +29,16 @@ public class SetProblems {
         Set<String> difference_data = new HashSet<>(set1);
         difference_data.removeAll(set2);
         System.out.println(difference_data);
+
+        // TreeSet is used when sorting is important
+        // add returns false when you try to add a duplicate element to a set
+        Set<Integer> sortedSet = new TreeSet<>();
+        sortedSet.add(3);
+        sortedSet.add(4);
+        sortedSet.add(8);
+        sortedSet.add(1);
+        sortedSet.add(2);
+        sortedSet.add(29);
+        System.out.println(sortedSet);
     }
 }

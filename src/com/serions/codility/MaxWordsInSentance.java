@@ -18,9 +18,9 @@ public class MaxWordsInSentance {
             wordCount.put(i, words.length);
         }
         int maxWords = wordCount.get(0);
-        for (Map.Entry entry : wordCount.entrySet()) {
-            if ((int) entry.getValue() > maxWords) {
-                maxWords = (int) entry.getValue();
+        for (Map.Entry<Integer, Integer> entry : wordCount.entrySet()) {
+            if (entry.getValue() > maxWords) {
+                maxWords = entry.getValue();
             }
         }
         return maxWords;
