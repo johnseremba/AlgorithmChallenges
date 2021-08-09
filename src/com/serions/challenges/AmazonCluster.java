@@ -22,7 +22,7 @@ import java.util.Scanner;
  *
  * Example;
  * input;
- * rows = 5
+ * rows = 4
  * column = 4
  * grid =
  * 1 1 0 0
@@ -71,5 +71,19 @@ public class AmazonCluster {
         }
         int result = numberAmazonGoStores(rows, columns, grid);
         System.out.println(result);
+        System.out.println(newNumberOfAmazonStores(rows, columns, grid));
+    }
+
+    private static int newNumberOfAmazonStores(int rows, int columns, List<List<Integer>> grid) {
+        int clusters = 0;
+        for (int i = 0; i < rows - 1; i++) {
+            for (int j = 0; j < columns - 1; j++) {
+                if ((grid.get(i).get(j) & grid.get(i + 1).get(j+1)) == 1) {
+                    ++clusters;
+                    break;
+                }
+            }
+        }
+        return clusters;
     }
 }
