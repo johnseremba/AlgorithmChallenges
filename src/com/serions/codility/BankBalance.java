@@ -7,7 +7,46 @@ public class BankBalance {
         System.out.println(solution(
                 new int[]{100,100,100,-10},
                 new String[]{"2020-12-31", "2020-12-22", "2020-12-03", "2020-12-29"}));
+
+        System.out.println(betterSolution(
+                new int[]{100,100,100,-10},
+                new String[]{"2020-12-31", "2020-12-22", "2020-12-03", "2020-12-29"}));
     }
+
+    private static int betterSolution(int[] A, String[] D) {
+        int cardFee = 5;
+        int months = 12;
+        if (A.length == 0 || A == null) return  months * cardFee;
+
+        // available balance
+        int availableBalance = Arrays.stream(A).sum();
+
+        // monthly expenses
+        HashMap<Integer, List<Integer>> monthWithExpenses = new HashMap<>();
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] < 0) {
+                int month = Integer.parseInt(D[i].split("-")[1]);
+                if (monthWithExpenses.containsKey(month)) {
+                    monthWithExpenses.get(month).add(A[i]);
+                } else {
+                    ArrayList<Integer> expenseList = new ArrayList<>();
+                    expenseList.add(A[i]);
+                    monthWithExpenses.put(month, expenseList);
+                }
+            }
+        }
+
+        // calculate card expenses
+        for(Map.Entry<Integer, List<Integer>> entry : monthWithExpenses.entrySet()) {
+            int sum = entry.getValue().stream().mapToInt(Integer::intValue).sum();
+            if (entry.getValue().size() >= 3 && Math.abs(sum) > 100) {
+                months--;
+            }
+        }
+
+        return availableBalance - (months * cardFee);
+    }
+
 
     private static int solution(int[] A, String[] D) {
         /**
@@ -63,6 +102,7 @@ public class BankBalance {
         }
 
         // better calculation
+        // cardFees = 12
         /* for(Map.Entry<Integer, List<Integer>> entry : monthlyCardExpenses.entrySet()) {
             if (entry.getValue().size() >= 3) {
                 int sum = Math.abs(entry.getValue().stream().mapToInt(exp -> exp).sum());
